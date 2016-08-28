@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${server.docroot:-.}/logs/simple-lottery.log</file>
+    <encoder>
+      <pattern>%d %5p %t %c - %m%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <maxIndex>10</maxIndex>
+      <FileNamePattern>${server.docroot:-.}/logs/simple-lottery.log.%i</FileNamePattern>
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <MaxFileSize>10MB</MaxFileSize>
+    </triggeringPolicy>
+  </appender>
+  
+  <logger name="org.apache" level="ERROR"/>
+  <logger name="org.springframework" level="ERROR"/>
+  <logger name="org.apache.catalina.core.ContainerBase.[Catalina].[localhost]" level="ERROR"/>
+  
+  <logger name="com.kaz.lottery" level="DEBUG"/>
+  
+  <root level="ERROR">
+    <appender-ref ref="rollingFile"/>
+  </root>
+</configuration>
