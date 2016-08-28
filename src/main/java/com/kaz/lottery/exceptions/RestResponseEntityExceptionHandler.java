@@ -20,7 +20,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 /**
  * ControllerAdvice to handle errors thrown during request processing (both expected and unexpected exceptions are handled).
  */
-@EnableWebMvc
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 

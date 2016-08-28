@@ -23,9 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<springfox-swagger.version>2.3.0</springfox-swagger.version>
-		<swagger.version>1.5.4</swagger.version>
 
-		<swagger-maven-plugin-version>3.1.0</swagger-maven-plugin-version>
 	</properties>
 
 	<dependencies>
@@ -35,38 +33,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- tomcat -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
 
 		<!-- swagger -->
-		<!--<dependency>-->
-			<!--<groupId>io.springfox</groupId>-->
-			<!--<artifactId>springfox-swagger-ui</artifactId>-->
-			<!--<version>${springfox-swagger.version}</version>-->
-		<!--</dependency>-->
-		<!--<dependency>-->
-			<!--<groupId>io.springfox</groupId>-->
-			<!--<artifactId>springfox-swagger2</artifactId>-->
-			<!--<version>${springfox-swagger.version}</version>-->
-		<!--</dependency>-->
-
-		<!--&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 &ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>org.apache.commons</groupId>-->
-			<!--<artifactId>commons-lang3</artifactId>-->
-			<!--<version>3.4</version>-->
-		<!--</dependency>-->
-
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -77,15 +45,19 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox-swagger.version}</version>
 		</dependency>
+
+		<!-- org.apache -->
 		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-core</artifactId>
-			<version>${swagger.version}</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
 		</dependency>
+
+		<!-- tests -->
 		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-annotations</artifactId>
-			<version>${swagger.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
@@ -98,48 +70,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>swaggify</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.github.kongchen</groupId>
-						<artifactId>swagger-maven-plugin</artifactId>
-						<version>${swagger-maven-plugin-version}</version>
-						<configuration>
-							<apiSources>
-								<apiSource>
-									<springmvc>true</springmvc>
-									<host>localhost:8080</host>
-									<locations>com.kaz.lottery.web</locations>
-									<basePath>/</basePath>
-									<info>
-										<title>Simple Lottery REST APIs</title>
-										<version>${project.version}</version>
-									</info>
-									<outputPath>${basedir}/target/strapdown.html</outputPath>
-									<swaggerDirectory>${basedir}/target</swaggerDirectory>
-								</apiSource>
-							</apiSources>
-						</configuration>
-						<executions>
-							<execution>
-								<phase>compile</phase>
-								<goals>
-									<goal>generate</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
-
-
-
 
 </project>
