@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by kaz on 28/08/2016.
+ * This is a unit test suite for testing the Sum2WinsTicketLineRules implementation of TicketLineRules interface.
  */
 @RunWith(SpringRunner.class)
 public class Sum2WinsTicketLineRulesTest {
@@ -57,36 +57,51 @@ public class Sum2WinsTicketLineRulesTest {
     }
 
     @Test
-    public void testCalculateTicketLineResult() {
-        // Result 10
-        int[] values = new int[Sum2WinsTicketLineRules.LINE_LENGTH];
+    public void testCalculateTicketLineResult_10() {
         // Assuming the line length is at least 3;
         Assert.assertTrue(Sum2WinsTicketLineRules.LINE_LENGTH > 2);
-        values[0] = 1;
-        values[1] = 1;
-        // Shift the numbers right and verify the line result is 10 for all combinations.
-        for (int i=0; i<Sum2WinsTicketLineRules.LINE_LENGTH-1; i++) {
-            for (int j=Sum2WinsTicketLineRules.LINE_LENGTH-1; j > 0; j--) {
-                values[j] = values[j-1];
-            }
-            values[0] = 0;
-            TicketLine ticketLine = new TicketLine(values);
-            sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
-            Assert.assertEquals(10, ticketLine.getResult());
-        }
+
+        int[] values = new int[Sum2WinsTicketLineRules.LINE_LENGTH];
 
         // Result 10
-        values[0] = 2;
-        // Shift the numbers right and verify the line result is 10 for all combinations.
-        for (int i=0; i<Sum2WinsTicketLineRules.LINE_LENGTH-1; i++) {
-            for (int j=Sum2WinsTicketLineRules.LINE_LENGTH-1; j > 0; j--) {
-                values[j] = values[j-1];
+        // Generate all possible combinations for sum 2 using two '1' digits.
+        for (int i = 0; i < Sum2WinsTicketLineRules.LINE_LENGTH - 1; i++) {
+            if (i > 0) {
+                values[i - 1] = 0;
             }
-            values[0] = 0;
+            values[i] = 1;
+            for (int j = i + 1; j < Sum2WinsTicketLineRules.LINE_LENGTH; j++) {
+                if (j > i + 1) {
+                    values[j - 1] = 0;
+                }
+                values[j] = 1;
+                TicketLine ticketLine = new TicketLine(values);
+                sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
+                Assert.assertEquals(10, ticketLine.getResult());
+            }
+        }
+
+        values = new int[Sum2WinsTicketLineRules.LINE_LENGTH];
+
+        // Result 10
+        // Generate all possible combinations for sum 2 using one '2' digit.
+        for (int i = 0; i < Sum2WinsTicketLineRules.LINE_LENGTH; i++) {
+            if (i > 0) {
+                values[i - 1] = 0;
+            }
+            values[i] = 2;
             TicketLine ticketLine = new TicketLine(values);
             sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
             Assert.assertEquals(10, ticketLine.getResult());
         }
+    }
+
+    @Test
+    public void testCalculateTicketLineResult_5() {
+        // Assuming the line length is at least 3;
+        Assert.assertTrue(Sum2WinsTicketLineRules.LINE_LENGTH > 2);
+
+        int[] values = new int[Sum2WinsTicketLineRules.LINE_LENGTH];
 
         // Result 5
         // Build lines with the same values and verify the line result is 5 for all combinations.
@@ -98,24 +113,19 @@ public class Sum2WinsTicketLineRulesTest {
             sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
             Assert.assertEquals(5, ticketLine.getResult());
         }
-
+    }
+    @Test
+    public void testCalculateTicketLineResult_1() {
         // Result 1
-        for (int i=0; i<Sum2WinsTicketLineRules.LINE_VALUES.length; i++) {
-
-        }
         TicketLine ticketLine = new TicketLine(new int[]{0, 1, 2});
         sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
         Assert.assertEquals(1, ticketLine.getResult());
 
-        ticketLine = new TicketLine(new int[]{0, 2, 1});
+        ticketLine = new TicketLine(new int[]{1, 0, 2});
         sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
         Assert.assertEquals(1, ticketLine.getResult());
 
-        ticketLine = new TicketLine(new int[]{2, 1, 1});
-        sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
-        Assert.assertEquals(1, ticketLine.getResult());
-
-        ticketLine = new TicketLine(new int[]{1, 2, 2});
+        ticketLine = new TicketLine(new int[]{1, 2, 0});
         sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
         Assert.assertEquals(1, ticketLine.getResult());
 
@@ -123,10 +133,41 @@ public class Sum2WinsTicketLineRulesTest {
         sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
         Assert.assertEquals(1, ticketLine.getResult());
 
-        // Result 0
-        ticketLine = new TicketLine(new int[]{0, 1, 2});
+        ticketLine = new TicketLine(new int[]{2, 0, 1});
         sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
         Assert.assertEquals(1, ticketLine.getResult());
+
+        ticketLine = new TicketLine(new int[]{0, 2, 1});
+        sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
+        Assert.assertEquals(1, ticketLine.getResult());
+    }
+
+    @Test
+    public void testCalculateTicketLineResult_0() {
+        // Result 0
+        TicketLine ticketLine = new TicketLine(new int[]{0, 1, 0});
+        sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
+        Assert.assertEquals(0, ticketLine.getResult());
+
+        ticketLine = new TicketLine(new int[]{1, 2, 1});
+        sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
+        Assert.assertEquals(0, ticketLine.getResult());
+
+        ticketLine = new TicketLine(new int[]{0, 0, 1});
+        sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
+        Assert.assertEquals(0, ticketLine.getResult());
+
+        ticketLine = new TicketLine(new int[]{2, 0, 2});
+        sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
+        Assert.assertEquals(0, ticketLine.getResult());
+
+        ticketLine = new TicketLine(new int[]{1, 1, 2});
+        sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
+        Assert.assertEquals(0, ticketLine.getResult());
+
+        ticketLine = new TicketLine(new int[]{2, 2, 0});
+        sum2WinsTicketLineRules.calculateTicketLineResult(ticketLine);
+        Assert.assertEquals(0, ticketLine.getResult());
     }
 
     @Test

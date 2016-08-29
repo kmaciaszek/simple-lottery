@@ -32,6 +32,7 @@ public class SimpleLotteryApplication {
 				"",
 				"");
 		return new Docket(DocumentationType.SWAGGER_2)
+				.useDefaultResponseMessages(false)
 				.groupName("simple-lottery")
 				.apiInfo(info)
 				.select()

@@ -8,6 +8,12 @@ public class TicketLineDTO {
     private int[] values;
     private int result;
 
+    public TicketLineDTO() { }
+
+    public TicketLineDTO(int[] values) {
+        this.values = values;
+    }
+
     public int[] getValues() {
         return values;
     }

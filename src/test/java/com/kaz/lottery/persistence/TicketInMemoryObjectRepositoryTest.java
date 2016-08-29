@@ -41,7 +41,7 @@ public class TicketInMemoryObjectRepositoryTest {
     }
 
     @Test
-    public void createRead_success() {
+    public void createAndRead_success() {
         Ticket ticket = new Ticket();
         List<TicketLine> lines = new ArrayList<>();
         lines.add(new TicketLine(new int[]{1, 0, 1}));
@@ -88,7 +88,7 @@ public class TicketInMemoryObjectRepositoryTest {
     }
 
     @Test
-    public void createRead_idProvided() {
+    public void createAndRead_idProvided() {
         Ticket ticket = new Ticket();
         final String ticketId = "unit-test-ticket-id-1";
         ticket.setId(ticketId);
@@ -113,7 +113,7 @@ public class TicketInMemoryObjectRepositoryTest {
     }
 
     @Test
-    public void createRead_alreadyExists() {
+    public void createAndRead_alreadyExists() {
         Ticket ticket = new Ticket();
         List<TicketLine> lines = new ArrayList<>();
         lines.add(new TicketLine(new int[]{1, 0, 1}));

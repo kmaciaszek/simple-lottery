@@ -65,7 +65,8 @@ public class Sum2WinsTicketLineRules implements TicketLineRules {
             ticketLine.setResult(10);
         } else if (Arrays.stream(ticketLine.getValues()).distinct().count() == 1) {
             ticketLine.setResult(5);
-        } else if (Arrays.stream(ticketLine.getValues()).distinct().count() == LINE_LENGTH) {
+        } else if (Arrays.stream(ticketLine.getValues(), 1, ticketLine.getValues().length)
+                .noneMatch(value ->  value == ticketLine.getValues()[0])) {
             ticketLine.setResult(1);
         } else {
             ticketLine.setResult(0);

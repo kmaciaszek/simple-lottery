@@ -1,0 +1,67 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Simple-Lottery",
+		"_postman_id": "8df19575-2946-b2f1-abd0-427d154466c7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Ticket 4 lines",
+			"request": {
+				"url": "http://localhost:8080/v1/tickets?noOfLines=4",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Read Ticket",
+			"request": {
+				"url": "http://localhost:8080/v1/tickets/Ticket-68af8b6b-9e65-4fd9-b7a1-73625054c6b1",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add Lines",
+			"request": {
+				"url": "http://localhost:8080/v1/tickets/Ticket-68af8b6b-9e65-4fd9-b7a1-73625054c6b1/lines?noOfLines=1",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Check Ticket",
+			"request": {
+				"url": "http://localhost:8080/v1/tickets/Ticket-68af8b6b-9e65-4fd9-b7a1-73625054c6b1/check",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
