@@ -1,13 +1,12 @@
 package com.kaz.lottery.dto;
 
-import com.kaz.lottery.model.TicketLine;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
 
 /**
- * Created by kaz on 29/08/2016.
+ * This is a unit test for TicketLineDTO class.
  */
 public class TicketLineDTOTest {
 

@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 /**
- * Created by kaz on 29/08/2016.
+ * This is a unit test for TicketLine class.
  */
 public class TicketLineTest {
 

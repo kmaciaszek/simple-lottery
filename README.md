@@ -27,7 +27,7 @@ To run the web service cd into the simple-lottery/ and run:
 
 The first command builds the application and the second runs it. It starts an embedded web container which serves the
 application on port 8080. If this port is already used on your system by something else then you can change the
-simple-lotter default port by editing the 'server.port' property defined in:
+simple-lottery default port by editing the 'server.port' property defined in:
     simple-lottery/src/main/resources/application.properties
 default value:
     server.port=8080

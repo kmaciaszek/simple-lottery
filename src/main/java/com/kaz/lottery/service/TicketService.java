@@ -11,7 +11,7 @@ public interface TicketService {
     /**
      * This method creates/generates a new Ticket.
      * @param noOfLines The number of lines on the ticket.
-     * @return The newely generated ticket.
+     * @return The newly generated ticket.
      */
     public Ticket createTicket(int noOfLines);
 

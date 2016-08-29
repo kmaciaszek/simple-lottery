@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by kaz on 27/08/2016.
+ * This is a unit test for TicketInMemoryObjectRepository class.
  */
 @RunWith(SpringRunner.class)
 public class TicketInMemoryObjectRepositoryTest {
@@ -36,7 +36,9 @@ public class TicketInMemoryObjectRepositoryTest {
         for (String id : ticketsToDelete) {
             try {
                 ticketObjectRepository.delete(id);
-            } catch (Exception e) { }
+            } catch (Exception e) {
+                //
+            }
         }
     }
 
@@ -101,14 +103,14 @@ public class TicketInMemoryObjectRepositoryTest {
         ticketsToDelete.add(created.getId());
         Assert.assertNotNull(created);
         Assert.assertNotNull(created.getId());
-        // Check that the id is the one which hass been provided.
+        // Check that the id is the one which has been provided.
         Assert.assertEquals(ticketId, created.getId());
 
         Ticket read = ticketObjectRepository.read(ticketId);
         Assert.assertNotNull(read);
         Assert.assertNotNull(read.getId());
         Assert.assertFalse(read.getId().isEmpty());
-        // Check that the id is the one which hass been provided.
+        // Check that the id is the one which has been provided.
         Assert.assertEquals(ticketId, read.getId());
     }
 
@@ -127,7 +129,7 @@ public class TicketInMemoryObjectRepositoryTest {
             Assert.fail("Expected ServiceException to be thrown");
         } catch (ServiceException e) {
             if ( !(e.getExceptionEntity() instanceof ItemAlreadyExistsExceptionEntity)) {
-                Assert.fail("Excpected ItemAlreadyExistsExceptionEntity.");
+                Assert.fail("Expected ItemAlreadyExistsExceptionEntity.");
             }
         }
     }

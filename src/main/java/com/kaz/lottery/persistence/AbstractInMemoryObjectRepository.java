@@ -17,7 +17,7 @@ import java.util.UUID;
  */
 public abstract class AbstractInMemoryObjectRepository<T extends Identified> implements ObjectRepository<T>{
 
-    protected Map<String, T> repo = new HashMap<>();
+    protected final Map<String, T> repo = new HashMap<>();
 
     @Override
     public T create(T object) {

@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by kaz on 28/08/2016.
+ * This is a unit test for TicketServiceImpl class.
  */
 @RunWith(SpringRunner.class)
 public class TicketServiceImplTest {

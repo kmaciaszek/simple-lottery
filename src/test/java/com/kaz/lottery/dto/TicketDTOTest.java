@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by kaz on 29/08/2016.
+ * This is a unit test for TicketDTO class.
  */
 @RunWith(SpringRunner.class)
 public class TicketDTOTest {

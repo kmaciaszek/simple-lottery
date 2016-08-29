@@ -2,7 +2,6 @@ package com.kaz.lottery.service;
 
 import com.kaz.lottery.persistence.TicketObjectRepository;
 import com.kaz.lottery.rules.TicketLineRules;
-import com.kaz.lottery.utils.EntityConverter;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

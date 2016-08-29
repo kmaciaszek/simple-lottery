@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by kaz on 29/08/2016.
+ * This is a unit test for GenericExceptionEntity class.
  */
 public class GenericExceptionEntityTest {
 

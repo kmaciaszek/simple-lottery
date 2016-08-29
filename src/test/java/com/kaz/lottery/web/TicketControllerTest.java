@@ -37,7 +37,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by kaz on 28/08/2016.
+ * This is a unit test for TicketController class.
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -315,7 +315,6 @@ public class TicketControllerTest {
     public void checkTicket_ticketIdNotFound() throws Exception {
 
         String ticketId = "unit-test-id-1";
-        int noOfLines = 2;
 
         Mockito.when(ticketService.checkTicket(ticketId)).thenThrow(
                 new ServiceException(new ItemNotFoundExceptionEntity(ExceptionCode.ITEM_NOT_FOUND, "error message", "error details"))
