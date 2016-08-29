@@ -21,6 +21,7 @@ Problem which this web service solves is described by the below:
 
 COMPILING AND RUNNING
 -
+This project requires Java 8 for compiling and running.
 This is a maven spring-boot application so to compile the sources you need maven installed
 (version 3.3.3 has been used at the time of development).
 
