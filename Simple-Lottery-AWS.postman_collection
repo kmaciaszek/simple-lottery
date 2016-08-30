@@ -1,0 +1,67 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Simple-Lottery AWS",
+		"_postman_id": "eb7eeb37-de08-a963-5b72-ac24ef5fe870",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Ticket 4 lines",
+			"request": {
+				"url": "http://ec2-52-26-20-26.us-west-2.compute.amazonaws.com/v1/tickets?noOfLines=4",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Read Ticket",
+			"request": {
+				"url": "http://ec2-52-26-20-26.us-west-2.compute.amazonaws.com/v1/tickets/Ticket-92be42fc-0cde-4459-b56e-66da9956986b",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add Lines",
+			"request": {
+				"url": "http://ec2-52-26-20-26.us-west-2.compute.amazonaws.com/v1/tickets/Ticket-92be42fc-0cde-4459-b56e-66da9956986b/lines?noOfLines=1",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Check Ticket",
+			"request": {
+				"url": "http://ec2-52-26-20-26.us-west-2.compute.amazonaws.com/v1/tickets/Ticket-92be42fc-0cde-4459-b56e-66da9956986b/check",
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
